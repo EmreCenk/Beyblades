@@ -34,9 +34,12 @@ class Ball {
   //  // increases velocity by x_add and y_add in the x and y components respectively
   //  this.velocity.add(addition);
   //}
-
+  
+  void rotate_ball(float angle){
+    this.coordinate = rotate_around_pivot(this.center_of_rotation, this.coordinate, angle);
+  }
   void move() {
-    this.coordinate = rotate_around_pivot(this.center_of_rotation, this.coordinate, this.angular_speed);
+    this.rotate_ball(this.angular_speed);
   }
 
   void display() {
