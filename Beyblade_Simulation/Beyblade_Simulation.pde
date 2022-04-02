@@ -1,16 +1,24 @@
 
 
 
+/*
+Naming conventions:
+
+All classes are CamelCase
+All objects of classes are snake_case
+
+*/
+
 Ball my_ball;
+BeybladeComponent my_component;
+
 void setup(){
   size(1000, 600);
-  my_ball = new Ball(width/2.0, height/2.0, new PVector(width/2, height/2), 10.0, -5.0, 1.0, radians(10));
+  my_component = new BeybladeComponent(new PVector(width/2, height/2), 100, 100, 1, radians(2));
   background(0);
 }
 
 void draw(){
   background(0);
-
-  my_ball.move();
-  my_ball.display();
+  my_component.display();
 }
