@@ -18,6 +18,7 @@ class Beyblade{
     for (int i = 0; i < component_num; i++){
       components.get(i).rotate_component(rotate_component_by * i);
     }
+    
   }
   void display(){
     for (int i = 0; i<this.components.size(); i++){

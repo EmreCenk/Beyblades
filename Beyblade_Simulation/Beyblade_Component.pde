@@ -19,10 +19,10 @@ class BeybladeComponent{
     this.center = center_;
     this.angular_speed = angular_speed_;
     this.balls = new ArrayList<Ball>();
-    for (float x = width/2 - length_/2; x<length_/2 + width/2; x+=length_/ball_num)
- {     this.balls.add(new Ball(x, height/2, this.center, ball_radius, this.angular_speed));  
+    for (float x = this.center.x - length_/2; x<length_/2 + this.center.x; x+=length_/ball_num)
+      this.balls.add(new Ball(x, this.center.y, this.center, ball_radius, this.angular_speed));  
     
- }   
+   
   }
   
   void display(){
