@@ -18,6 +18,7 @@ class BeybladeComponent{
     this.balls = new ArrayList<Ball>();
     this.angular_speed = angular_speed_;
     for (int x = width/2 - length_/2; x<length_/2 + width/2; x+=length_/ball_num){
+      println((x-width/2+length_/2)/(length_/ball_num));
       this.balls.add(new Ball(x, height/2, this.center, ball_radius, this.angular_speed));  
     }
   
