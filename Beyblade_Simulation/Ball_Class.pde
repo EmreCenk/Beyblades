@@ -2,9 +2,10 @@ class Ball {
   float radius;
   PVector coordinate, previous_coordinate; // keeps track of the current coordinate and the coordinate in the previous frame
   PVector velocity;
-  float angular_speed;
+  float angular_speed; // how many degrees it should rotate by each second
   PVector center_of_rotation; // where the center of the beyblade is
   color colour; // gray by default
+  
   Ball(float starting_x, float starting_y, PVector rotation_center, float radius_, float velocity_x, float velocity_y, float angular_speed_) {
     this.coordinate = new PVector(starting_x, starting_y);
     this.velocity = new PVector(velocity_x, velocity_y);
@@ -31,6 +32,7 @@ class Ball {
 
   void move() {
     this.coordinate.add(this.velocity);
+    this.coordinate = rotate_around_pivot(this.center_of_rotation, this.coordinate, this.angular_speed);
   }
 
   void display() {
