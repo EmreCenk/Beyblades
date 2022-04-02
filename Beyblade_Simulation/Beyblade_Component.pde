@@ -28,4 +28,10 @@ class BeybladeComponent{
       this.balls.get(i).display();
     }
   }
+  
+  void update(){
+    for (int i = 0; i<this.balls.size(); i++){
+      this.balls.get(i).move();
+    }
+  }
 }

@@ -36,7 +36,6 @@ class Ball {
   //}
 
   void move() {
-    this.coordinate.add(this.velocity);
     this.coordinate = rotate_around_pivot(this.center_of_rotation, this.coordinate, this.angular_speed);
   }
 

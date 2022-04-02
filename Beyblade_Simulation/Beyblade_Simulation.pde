@@ -20,5 +20,7 @@ void setup(){
 
 void draw(){
   background(0);
+  my_component.update();
+
   my_component.display();
 }
