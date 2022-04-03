@@ -11,8 +11,9 @@ All objects of classes are snake_case
 
 Ball my_ball;
 BeybladeComponent my_component;
-Beyblade b;
-Beyblade bb;
+Beyblade b, bb;
+Prison my_prison;
+
 void setup(){
   size(1000, 600);
   //my_component = new BeybladeComponent(new PVector(width/3, height/3), 11, 300.0, 10, radians(2));
@@ -23,6 +24,8 @@ void setup(){
                    5, // how thick the components are
                    radians(2) // how fast it spins
   );
+  my_prison = new Prison(0, 0, width, height);
+  
   bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(1));
   bb.set_velocity(new PVector(1,1));
   background(0);
@@ -34,6 +37,8 @@ void draw(){
   //my_component.display();
 
   bb.update();
+  my_prison.imprison(bb);
+  
   bb.display();
   
   //b.update();
