@@ -48,6 +48,12 @@ class BeybladeComponent{
     }
   }
   
+  void set_color(color new_color){
+    for (int i = 0; i<this.balls.size(); i++){
+      this.balls.get(i).colour = new_color;
+    }
+  }
+  
   void rotate_component(float angle){
     for (int i = 0; i<this.balls.size(); i++){
       this.balls.get(i).rotate_ball(angle);

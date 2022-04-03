@@ -7,6 +7,7 @@ class Beyblade{
   PVector velocity;
   float radius;
   float angular_speed;
+  color colour;
   Beyblade(int component_num, PVector center_, float radius, int ball_num, float thickness, float angular_speed_){    
     
     float rotate_component_by = radians(360/component_num); // angle between each component
@@ -23,6 +24,7 @@ class Beyblade{
     this.radius = radius;
     this.angular_speed = angular_speed_;
     this.set_velocity(new PVector(0,0));
+    this.set_colour(color(255, 255, 255));
   }
   
   void set_angular_speed(float new_speed){
@@ -31,6 +33,14 @@ class Beyblade{
       this.components.get(i).set_angular_speed(this.angular_speed);
     }
   }
+  
+  void set_colour(color new_color){
+    this.colour = new_color;
+    for (int i = 0; i<this.components.size(); i++){
+      this.components.get(i).set_color(new_color);
+    }
+  }
+  
   
   void set_velocity(PVector new_velocity){
     this.velocity = new_velocity;
