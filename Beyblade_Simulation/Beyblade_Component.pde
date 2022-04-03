@@ -41,6 +41,13 @@ class BeybladeComponent{
     }
   }
   
+  void set_angular_speed(float new_speed){
+    this.angular_speed = new_speed;
+    for (int i = 0; i<this.balls.size(); i++){
+      this.balls.get(i).angular_speed = this.angular_speed;
+    }
+  }
+  
   void rotate_component(float angle){
     for (int i = 0; i<this.balls.size(); i++){
       this.balls.get(i).rotate_ball(angle);

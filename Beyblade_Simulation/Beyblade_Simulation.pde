@@ -24,10 +24,15 @@ void setup(){
                    5, // how thick the components are
                    radians(2) // how fast it spins
   );
-  my_prison = new Prison(0, 0, width, height);
+  
+  b.set_velocity(new PVector(3, -1.4));
+
+  my_prison = new Prison(0, 0, width, height, 0.8, 0.4);
   
   bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(1));
-  bb.set_velocity(new PVector(1,1));
+
+  
+  bb.set_velocity(new PVector(3, 3));
   background(0);
 }
 
@@ -38,10 +43,10 @@ void draw(){
 
   bb.update();
   my_prison.imprison(bb);
-  
   bb.display();
   
-  //b.update();
+  b.update();
+  my_prison.imprison(b);
   b.display();
   
   fill(255);
