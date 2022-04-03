@@ -62,3 +62,11 @@ boolean point_is_on_line(PVector line_point_1, PVector line_point_2, PVector poi
           && point_to_check.y > min(line_point_1.y, line_point_2.y)
           );
 }
+
+boolean line_segments_intersect(PVector line1_p1, PVector line1_p2, PVector line2_p1, PVector line2_p2){
+    PVector intersection = find_intersection(line1_p1, line1_p2, line2_p1, line2_p2);
+    
+    boolean point_on_line1 = point_is_on_line(line1_p1, line1_p2, intersection);
+    boolean point_on_line2 = point_is_on_line(line2_p1, line2_p2, intersection);
+    return (point_on_line1 && point_on_line2);
+}

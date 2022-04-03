@@ -25,28 +25,15 @@ class Prison{
   void calculate_collision(Beyblade b1, Beyblade b2){
     // checks if 2 beyblades are colliding. If they are, it does the necesary collision calculations
     BeybladeComponent c1, c2;
-    PVector intersection; // intersection point
-    float max_x, min_x, max_y, min_y;
     for (int i = 0; i < b1.components.size(); i++){
       c1 = b1.components.get(i);
       for (int j = 0; j < b2.components.size(); j++){
         c2 = b2.components.get(j);
-        intersection = find_intersection(c1.balls.get(0).coordinate, c1.balls.get(c1.balls.size() - 1).coordinate,
-                                         c2.balls.get(0).coordinate, c2.balls.get(c2.balls.size() - 1).coordinate);
-        
-        boolean point_on_line1 = point_is_on_line(c1.balls.get(0).coordinate, c1.balls.get(c1.balls.size() - 1).coordinate, intersection);
-        boolean point_on_line2 = point_is_on_line(c2.balls.get(0).coordinate, c2.balls.get(c2.balls.size() - 1).coordinate, intersection);
-
-        if (point_on_line1 && point_on_line2){
-          noLoop();
-          fill(color(255, 0, 0));
-          stroke(color(255, 0, 0));
-          strokeWeight(10);
-          line(c1.balls.get(0).coordinate.x, c1.balls.get(0).coordinate.y, c1.balls.get(c1.balls.size() - 1).coordinate.x, c1.balls.get(c1.balls.size() - 1).coordinate.y);
-          line(c2.balls.get(0).coordinate.x, c2.balls.get(0).coordinate.y, c2.balls.get(c1.balls.size() - 1).coordinate.x, c2.balls.get(c1.balls.size() - 1).coordinate.y);
-          //line(c1.balls.get(0).coordinate.x, c1.balls.get(0).coordinate.y, c2.balls.get(0).coordinate.x, c2.balls.get(0).coordinate.y);
-          circle(intersection.x, intersection.y, 10);
-          //return;
+        if (line_segments_intersect(c1.balls.get(0).coordinate, c1.balls.get(c1.balls.size() - 1).coordinate,
+                                    c2.balls.get(0).coordinate, c2.balls.get(c2.balls.size() - 1).coordinate)){
+          b1.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
+          b2.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
+          return;
         }
       }
     }

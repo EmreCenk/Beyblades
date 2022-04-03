@@ -27,7 +27,7 @@ void setup(){
   
   b.set_velocity(new PVector(-3, 0));
 
-  my_prison = new Prison(0, 0, width, height, 0.8, 0.4);
+  my_prison = new Prison(0, 0, width, height, 0.9, 1.1);
   
   bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(1));
 
