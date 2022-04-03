@@ -25,14 +25,14 @@ void setup(){
                    radians(2) // how fast it spins
   );
   
-  b.set_velocity(new PVector(3, -1.4));
+  b.set_velocity(new PVector(-3, 0));
 
   my_prison = new Prison(0, 0, width, height, 0.8, 0.4);
   
   bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(1));
 
   
-  bb.set_velocity(new PVector(3, 3));
+  bb.set_velocity(new PVector(3, 0));
   background(0);
 }
 
@@ -41,14 +41,25 @@ void draw(){
   //my_component.update();
   //my_component.display();
 
+
+  my_prison.calculate_collision(b, bb);
+
   bb.update();
   my_prison.imprison(bb);
-  bb.display();
+
   
   b.update();
-  my_prison.imprison(b);
+  my_prison.imprison(b)
+  
+  
+  ;
   b.display();
+  bb.display();  
   
   fill(255);
   circle(width/2, height/2, 5);
+}
+
+void keyPressed(){
+  loop();
 }

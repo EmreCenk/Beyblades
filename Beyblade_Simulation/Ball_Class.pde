@@ -23,9 +23,7 @@ class Ball {
 
   Ball(float starting_x, float starting_y, PVector rotation_center, float radius_, float angular_speed_, color colour_) {
     //gives option to init with colour
-
-    //call the constructor again to initialize other values:
-    this(starting_x, starting_y, rotation_center, radius_, angular_speed_);
+    this(starting_x, starting_y, rotation_center, radius_, angular_speed_); //call the constructor again to initialize other values:
     this.colour = colour_;
   }
 
