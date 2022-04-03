@@ -23,7 +23,8 @@ void setup(){
                    5, // how thick the components are
                    radians(2) // how fast it spins
   );
-  bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(5));
+  bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(1));
+  bb.set_velocity(new PVector(1,1));
   background(0);
 }
 
@@ -35,9 +36,9 @@ void draw(){
   bb.update();
   bb.display();
   
-  b.update();
+  //b.update();
   b.display();
   
   fill(255);
-  circle(width/3, height/3, 5);
+  circle(width/2, height/2, 5);
 }

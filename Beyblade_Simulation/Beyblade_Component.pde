@@ -7,7 +7,7 @@ class BeybladeComponent{
   float angular_speed; // how many degrees it should rotate by each frame
   ArrayList<Ball> balls; // every component is made up of a bunch of balls
   float line_weight;
-
+  PVector velocity;
   
   BeybladeComponent(PVector center_, // center of beyblade
                     int ball_num, // how many balls the component should have. 
@@ -19,20 +19,26 @@ class BeybladeComponent{
     this.center = center_;
     this.angular_speed = angular_speed_;
     this.balls = new ArrayList<Ball>();
-    for (float x = this.center.x - length_/2; x<length_/2 + this.center.x; x+=length_/ball_num)
+    for (float x = this.center.x - length_/2.0; x<length_/2.0 + this.center.x; x+=length_/ball_num)
       this.balls.add(new Ball(x, this.center.y, this.center, ball_radius, this.angular_speed));  
     
-   this.line_weight = ball_radius / 2; //default value
+     this.line_weight = ball_radius / 2; //default value
   }
   
   void display(){
-    for (int i = 0; i<this.balls.size() - 1; i++){
+    for (int i = 0; i<this.balls.size(); i++){
       this.balls.get(i).display();
-      strokeWeight(this.line_weight);
-      line(this.balls.get(i).coordinate.x, this.balls.get(i).coordinate.y, this.balls.get(i+1).coordinate.x, this.balls.get(i+1).coordinate.y);
     }
     strokeWeight(this.line_weight);
-    this.balls.get(this.balls.size() - 1).display();
+    line(this.balls.get(0).coordinate.x, this.balls.get(0).coordinate.y, this.balls.get(this.balls.size() - 1).coordinate.x, this.balls.get(this.balls.size() - 1).coordinate.y);
+
+  }
+  
+  void set_velocity(PVector new_velocity){
+    this.velocity = new_velocity;
+    for (int i = 0; i<this.balls.size(); i++){
+      this.balls.get(i).velocity = this.velocity;
+    }
   }
   
   void rotate_component(float angle){
@@ -42,7 +48,9 @@ class BeybladeComponent{
   }
   
   void update(){
-    this.rotate_component(this.angular_speed);
+    for (int i = 0; i<this.balls.size(); i++){
+      this.balls.get(i).move();
+    }
   }
 
 }
