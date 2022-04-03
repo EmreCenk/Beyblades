@@ -1,6 +1,6 @@
 class Ball {
   float radius;
-  PVector coordinate, previous_coordinate; // keeps track of the current coordinate and the coordinate in the previous frame
+  PVector coordinate; // keeps track of the current coordinate
   PVector velocity;
   float angular_speed; // how many degrees it should rotate by each frame
   PVector center_of_rotation; // where the center of the BEYBLADE is (NOT the center for the ball)

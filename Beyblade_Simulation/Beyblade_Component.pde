@@ -47,6 +47,15 @@ class BeybladeComponent{
       this.balls.get(i).angular_speed = this.angular_speed;
     }
   }
+
+  void set_center(PVector new_center){
+
+    this.center = new_center;
+  
+    for (int i = 0; i<this.balls.size(); i++){
+      this.balls.get(i).center_of_rotation = this.center;
+    }
+  }
   
   void set_color(color new_color){
     for (int i = 0; i<this.balls.size(); i++){

@@ -33,8 +33,10 @@ class Prison{
                                     c2.balls.get(0).coordinate, c2.balls.get(c2.balls.size() - 1).coordinate)){
           b1.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
           b2.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
-          b1.set_velocity(b1.velocity.mult(-1));
-          b2.set_velocity(b2.velocity.mult(-1));
+          
+          //b1.set_velocity(b1.velocity.mult(-1));
+          //b2.set_velocity(b2.velocity.mult(-1));
+          elastic_collision(b1, b2);
           return;
         }
       }
@@ -44,37 +46,38 @@ class Prison{
   
   void imprison(Beyblade some_beyblade){
     // makes sure ball isn't out of boundaries 
-    // makes ball bounce off wall if necesary\
+    // makes ball bounce off wall if necesary
     // note: this function treats all beyblades as circles (the math was easier and there were less calculations don't judge me lol)
     
     if (some_beyblade.center.y < this.top_left.y + some_beyblade.radius){
       //top wall
-      some_beyblade.velocity.y *= -1; // reflect along top line
-      some_beyblade.center.y = this.top_left.y + some_beyblade.radius;
-      some_beyblade.velocity.mult(this.bounciness);
+      some_beyblade.set_velocity(new PVector(some_beyblade.velocity.x, -some_beyblade.velocity.y)); // reflect along top line
+      some_beyblade.set_center(new PVector(some_beyblade.center.x, this.top_left.y + some_beyblade.radius));
+      some_beyblade.set_velocity(some_beyblade.velocity.mult(this.bounciness)); 
+      
     }
     else if (some_beyblade.center.y > this.bottom_right.y - some_beyblade.radius){
       //bottom wall
-      some_beyblade.velocity.y *= -1;
-      some_beyblade.center.y = this.bottom_right.y - some_beyblade.radius;
-      some_beyblade.velocity.mult(this.bounciness);
+      some_beyblade.set_velocity(new PVector(some_beyblade.velocity.x, -some_beyblade.velocity.y)); // reflect along line
+      some_beyblade.set_center(new PVector(some_beyblade.center.x, this.bottom_right.y - some_beyblade.radius));
+      some_beyblade.set_velocity(some_beyblade.velocity.mult(this.bounciness));
       some_beyblade.set_angular_speed(some_beyblade.angular_speed * this.angular_loss);
     }
     
     if (some_beyblade.center.x < this.top_left.x + some_beyblade.radius){
       // left wall
-      some_beyblade.velocity.x *= -1;
-      some_beyblade.center.x = this.top_left.x + some_beyblade.radius;
-      some_beyblade.velocity.mult(this.bounciness);
+      some_beyblade.set_velocity(new PVector(-some_beyblade.velocity.x, some_beyblade.velocity.y)); // reflect along line
+      some_beyblade.set_center(new PVector(this.top_left.x + some_beyblade.radius, some_beyblade.center.y));
+      some_beyblade.set_velocity(some_beyblade.velocity.mult(this.bounciness)); 
       some_beyblade.set_angular_speed(some_beyblade.angular_speed * this.angular_loss);
 
     }
     
     else if (some_beyblade.center.x > this.bottom_right.x - some_beyblade.radius){
       // right wall
-      some_beyblade.velocity.x *= -1;
-      some_beyblade.center.x = this.bottom_right.x - some_beyblade.radius;
-      some_beyblade.velocity.mult(this.bounciness);
+      some_beyblade.set_velocity(new PVector(-some_beyblade.velocity.x, some_beyblade.velocity.y)); // reflect line
+      some_beyblade.set_center(new PVector(this.bottom_right.x - some_beyblade.radius, some_beyblade.center.y));
+      some_beyblade.set_velocity(some_beyblade.velocity.mult(this.bounciness)); 
       some_beyblade.set_angular_speed(some_beyblade.angular_speed * this.angular_loss);
 
     }

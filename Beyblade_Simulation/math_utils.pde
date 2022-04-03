@@ -65,8 +65,15 @@ boolean point_is_on_line(PVector line_point_1, PVector line_point_2, PVector poi
 
 boolean line_segments_intersect(PVector line1_p1, PVector line1_p2, PVector line2_p1, PVector line2_p2){
     PVector intersection = find_intersection(line1_p1, line1_p2, line2_p1, line2_p2);
-    
+    if (intersection == null) return false;
     boolean point_on_line1 = point_is_on_line(line1_p1, line1_p2, intersection);
     boolean point_on_line2 = point_is_on_line(line2_p1, line2_p2, intersection);
     return (point_on_line1 && point_on_line2);
+}
+
+float[] solve_quadratic(float a, float b, float c){
+  // solves a*x^2 + bx + c = 0
+  // TODO: IMPLEMENT OTHER SOLUTION (-)
+  return new float [] {(-b + sqrt(b*b - 4*a*c))/(2*a), (-b - sqrt(b*b - 4*a*c))/(2*a)};
+
 }
