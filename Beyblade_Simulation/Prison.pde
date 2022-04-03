@@ -33,6 +33,8 @@ class Prison{
                                     c2.balls.get(0).coordinate, c2.balls.get(c2.balls.size() - 1).coordinate)){
           b1.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
           b2.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
+          b1.set_velocity(b1.velocity.mult(-1));
+          b2.set_velocity(b2.velocity.mult(-1));
           return;
         }
       }
