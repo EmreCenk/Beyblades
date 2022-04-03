@@ -45,6 +45,7 @@ class Ball {
   void display() {
     fill(this.colour);
     stroke(this.colour);
+    strokeWeight(1);
     circle(this.coordinate.x, this.coordinate.y, this.radius*2);
   }
 }

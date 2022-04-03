@@ -6,7 +6,7 @@ class BeybladeComponent{
   PVector center;
   float angular_speed; // how many degrees it should rotate by each frame
   ArrayList<Ball> balls; // every component is made up of a bunch of balls
-  
+  float line_weight;
 
   
   BeybladeComponent(PVector center_, // center of beyblade
@@ -22,13 +22,17 @@ class BeybladeComponent{
     for (float x = this.center.x - length_/2; x<length_/2 + this.center.x; x+=length_/ball_num)
       this.balls.add(new Ball(x, this.center.y, this.center, ball_radius, this.angular_speed));  
     
-   
+   this.line_weight = ball_radius / 2; //default value
   }
   
   void display(){
-    for (int i = 0; i<this.balls.size(); i++){
+    for (int i = 0; i<this.balls.size() - 1; i++){
       this.balls.get(i).display();
+      strokeWeight(this.line_weight);
+      line(this.balls.get(i).coordinate.x, this.balls.get(i).coordinate.y, this.balls.get(i+1).coordinate.x, this.balls.get(i+1).coordinate.y);
     }
+    strokeWeight(this.line_weight);
+    this.balls.get(this.balls.size() - 1).display();
   }
   
   void rotate_component(float angle){

@@ -16,8 +16,14 @@ Beyblade bb;
 void setup(){
   size(1000, 600);
   //my_component = new BeybladeComponent(new PVector(width/3, height/3), 11, 300.0, 10, radians(2));
-  b = new Beyblade(3, new PVector(width/2, height/2), 100, 10, 5, radians(2));
-  bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(2));
+  b = new Beyblade(3, // amount of components
+                   new PVector(width/2, height/2), //center
+                   100, // radius of beyblade
+                   5, // ball num
+                   5, // how thick the components are
+                   radians(2) // how fast it spins
+  );
+  bb = new Beyblade(3, new PVector(width/3, height/3), 100, 12, 5, radians(5));
   background(0);
 }
 
