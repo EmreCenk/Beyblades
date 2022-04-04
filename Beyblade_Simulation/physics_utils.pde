@@ -13,8 +13,9 @@ float[] elastic_collision_1d(float m1, float v1, float m2, float v2){
   float new_v2, new_v1;
   float p_i = m1 * v1 + m2 * v2; // initial momentum
   float Ek_i = m1 * v1 * v1 + m2 * v2 * v2; // initial kinetic energy
-  
-  float[] v2_final_options = solve_quadratic(m2 + (m2*m2)/m1, -2*p_i*m2/m1, p_i*p_i/m1 - Ek_i);
+  float[] v2_final_options = solve_quadratic(m2 + (m2*m2)/m1, -2*p_i*m2/m1, p_i*p_i/m1 - Ek_i); // the result of a page of algebra and 15+ minutes of my life
+
+  //one of the answers will be inadmissible, the following if statement
   if (v2_final_options[0] == v2) new_v2 = v2_final_options[1];
   else new_v2 = v2_final_options[0];
   
@@ -24,7 +25,8 @@ float[] elastic_collision_1d(float m1, float v1, float m2, float v2){
 
 
 void elastic_collision(Beyblade beyb1, Beyblade beyb2){
-
+  // calculates what would happen if 2 beyblades collided
+  // if this function has been called, we are sure that the 2 beyblades are intersecting at some point
   
   // note: since this is 2d we have to do each component individually :(
   float [] x_components = elastic_collision_1d(beyb1.mass, beyb1.velocity.x, beyb2.mass, beyb2.velocity.x);  
@@ -35,8 +37,8 @@ void elastic_collision(Beyblade beyb1, Beyblade beyb2){
 
   
   
-  beyb1.set_angular_speed(beyb2.angular_speed - 0.1);
-  beyb1.set_angular_speed(beyb2.angular_speed - 0.1);
+  //beyb1.set_angular_speed(max(beyb2.angular_speed - 0.001, 0));
+  //beyb1.set_angular_speed(max(beyb2.angular_speed - 0.001, 0));
   //beyb2.set_velocity(new PVector(new_v2x, 0));
   //beyb1.set_velocity(new PVector(new_v1x, 0));
 
