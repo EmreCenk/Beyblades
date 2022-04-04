@@ -39,18 +39,20 @@ void setup(){
   size(1000, 600);
   beyblades = new ArrayList<Beyblade>();
   
-  beyblade_2 = new Beyblade(51, new PVector(width*0.4, height*0.8), 100, 12, 5, radians(1));
-  beyblade_2.set_velocity(new PVector(2, -2));
+  beyblade_2 = new Beyblade(13, new PVector(width*0.5, height*0.8), 100, 12, 5, radians(1));
+  beyblade_2.set_velocity(new PVector(1, -2));
   beyblade_2.set_mass(10);
+  beyblade_2.set_colour(color(100, 255, 100));
   beyblades.add(beyblade_2);
 
-  beyblade_1 = new Beyblade(8, new PVector(width*0.75, height * 0.8), 100, 12, 5, radians(2));
-  beyblade_1.set_velocity(new PVector(-4, -2)); // when initializing the velocity for the first time, you must use this setter method to set velocity. DO NOT USE b.velocity = new PVector(1,1);
+  beyblade_1 = new Beyblade(32, new PVector(width*0.9, height * 0.8), 100, 12, 5, radians(2));
+  beyblade_1.set_velocity(new PVector(-2, -1)); // when initializing the velocity for the first time, you must use this setter method to set velocity. DO NOT USE b.velocity = new PVector(1,1);
   beyblade_1.set_mass(3);
+  beyblade_1.set_colour(color(255, 100, 0));
   beyblades.add(beyblade_1);
 
-  beyblade_3 = new Beyblade(8, new PVector(0, 100), 100, 12, 5, radians(1));
-  beyblade_3.set_velocity(new PVector(1, 1));
+  beyblade_3 = new Beyblade(5, new PVector(width*0.1, height*0.8), 100, 12, 5, radians(1));
+  beyblade_3.set_velocity(new PVector(0.4, -1));
   beyblades.add(beyblade_3);
   
   //creating a prison around the screen that the beyblades can never escape:
