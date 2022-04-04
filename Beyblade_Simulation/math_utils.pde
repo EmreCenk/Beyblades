@@ -77,6 +77,7 @@ boolean line_segments_intersect(PVector line1_p1, PVector line1_p2, PVector line
 float[] solve_quadratic(float a, float b, float c){
   // solves a*x^2 + bx + c = 0
   // TODO: IMPLEMENT OTHER SOLUTION (-)
+  if (b*b - 4*a*c < 0) return new float[]{0.1, -0.1};
   return new float [] {(-b + sqrt(b*b - 4*a*c))/(2*a), (-b - sqrt(b*b - 4*a*c))/(2*a)};
 
 }
