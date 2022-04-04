@@ -1,6 +1,8 @@
 
 
 
+float VELOCITY_LOSS = 10;
+
 float[] elastic_collision_1d(float m1, float v1, float m2, float v2){
   // using physics to simulate equations  
   // conservation of momentum: m1*v1 + m2*v2 = m1*v1' + m2*v2'
@@ -30,7 +32,11 @@ void elastic_collision(Beyblade beyb1, Beyblade beyb2){
   
   beyb1.set_velocity(new PVector(x_components[0], y_components[0]));
   beyb2.set_velocity(new PVector(x_components[1], y_components[1]));
-   
+
+  
+  
+  beyb1.set_angular_speed(beyb2.angular_speed - 0.1);
+  beyb1.set_angular_speed(beyb2.angular_speed - 0.1);
   //beyb2.set_velocity(new PVector(new_v2x, 0));
   //beyb1.set_velocity(new PVector(new_v1x, 0));
 

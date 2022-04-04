@@ -22,7 +22,7 @@ class BeybladeComponent{
     for (float x = this.center.x - length_/2.0; x<length_/2.0 + this.center.x; x+=length_/ball_num)
       this.balls.add(new Ball(x, this.center.y, this.center, ball_radius, this.angular_speed));  
     
-     this.line_weight = ball_radius / 2; //default value
+     this.line_weight = DEFAULT_MASS * MASS_TO_LINE_WEIGHT_COEFFICIENT; //default value
   }
   
   void display(){
@@ -69,7 +69,7 @@ class BeybladeComponent{
     }
   }
   
-  void update(){
+  void move(){
     for (int i = 0; i<this.balls.size(); i++){
       this.balls.get(i).move();
     }

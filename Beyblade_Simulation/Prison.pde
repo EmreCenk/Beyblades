@@ -31,8 +31,8 @@ class Prison{
         c2 = b2.components.get(j);
         if (line_segments_intersect(c1.balls.get(0).coordinate, c1.balls.get(c1.balls.size() - 1).coordinate,
                                     c2.balls.get(0).coordinate, c2.balls.get(c2.balls.size() - 1).coordinate)){
-          b1.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
-          b2.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
+          b1.set_colour(color(round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
+          b2.set_colour(color(round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
           
 
           elastic_collision(b1, b2); // fancy physics simulation
