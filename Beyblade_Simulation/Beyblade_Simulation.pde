@@ -26,16 +26,16 @@ void setup(){
   b = new Beyblade(3, // amount of components
                    new PVector(width*0.7, height/2), //center
                    100, // radius of beyblade
-                   5, // ball num
+                   12, // ball num
                    5, // how thick the components are
-                   radians(2) // how fast it spins
+                   radians(10) // how fast it spins
   );
   
-  b.set_velocity(new PVector(-3, 0)); // sets velocity for beyblade. the default velocity is 0 for all beyblades
+  b.set_velocity(new PVector(-10, -5)); // sets velocity for beyblade. the default velocity is 0 for all beyblades
   b.mass = 3;
   
   bb = new Beyblade(3, new PVector(width*0.2, height/2), 100, 12, 5, radians(1));
-  bb.set_velocity(new PVector(100, 0));
+  bb.set_velocity(new PVector(2, -2));
   
   
   //creating a prison around the screen that the beyblades can never escape:
@@ -49,17 +49,17 @@ void draw(){
   background(0);
 
 
-  //my_prison.calculate_collision(b, bb);
+  my_prison.calculate_collision(b, bb);
 
   my_prison.imprison(bb);
   bb.update();
 
   my_prison.imprison(b);
-  //b.update();
+  b.update();
   
   
 
-  //b.display();
+  b.display();
   bb.display();  
   
   

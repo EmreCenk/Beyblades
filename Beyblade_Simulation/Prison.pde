@@ -34,10 +34,9 @@ class Prison{
           b1.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
           b2.set_colour(color( round(random(0, 255)), round(random(0, 255)), round(random(0, 255))));
           
-          //b1.set_velocity(b1.velocity.mult(-1));
-          //b2.set_velocity(b2.velocity.mult(-1));
-          elastic_collision(b1, b2);
-          return;
+
+          elastic_collision(b1, b2); // fancy physics simulation
+          //return;
         }
       }
     }
