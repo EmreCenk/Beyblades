@@ -32,13 +32,13 @@ void elastic_collision(Beyblade beyb1, Beyblade beyb2){
   float [] x_components = elastic_collision_1d(beyb1.mass, beyb1.velocity.x, beyb2.mass, beyb2.velocity.x);  
   float [] y_components = elastic_collision_1d(beyb1.mass, beyb1.velocity.y, beyb2.mass, beyb2.velocity.y);
   
-  beyb1.set_velocity(new PVector(x_components[0], y_components[0]));
-  beyb2.set_velocity(new PVector(x_components[1], y_components[1]));
+  beyb1.set_velocity(new PVector(x_components[0], y_components[0]).mult(0.99));
+  beyb2.set_velocity(new PVector(x_components[1], y_components[1]).mult(0.99));
 
   
   
-  //beyb1.set_angular_speed(max(beyb2.angular_speed - 0.001, 0));
-  //beyb1.set_angular_speed(max(beyb2.angular_speed - 0.001, 0));
+  beyb1.set_angular_speed(max(beyb2.angular_speed*0.95, 0));
+  beyb2.set_angular_speed(max(beyb2.angular_speed*0.95, 0));
   //beyb2.set_velocity(new PVector(new_v2x, 0));
   //beyb1.set_velocity(new PVector(new_v1x, 0));
 

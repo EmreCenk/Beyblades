@@ -2,6 +2,17 @@
 
 
 /*
+This is a beyblade simulation.
+If you don't know, beyblades are basically spinning discs that battle each other.
+
+The project was initially a beyblade simulation. However, at this point I think it's better to just call it a physics "momentum demo"
+
+
+
+*/
+
+
+/*
 Naming conventions:
 
 All classes are CamelCase
@@ -9,12 +20,7 @@ All variables (aka class instances) are snake_case
 All global constants are CAPITALIZED_LIKE_THIS
 */
 
-int n = 2; // number of beyblades you want to fight at the same time
 
-
-
-//initial_velocities.add(new PVector(0, 0));
-//initial_velocities.add(new PVector(2, 3));
 
 ArrayList<Beyblade> beyblades;
 Prison my_prison;
