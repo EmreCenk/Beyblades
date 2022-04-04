@@ -25,7 +25,7 @@ float[] elastic_collision_1d(float m1, float v1, float m2, float v2){
 }
 
 
-void elastic_collision(Beyblade beyb1, Beyblade beyb2){
+void elastic_collision_2d(Beyblade beyb1, Beyblade beyb2){
   // calculates what would happen if 2 beyblades collided
   // if this function has been called, we are sure that the 2 beyblades are intersecting at some point
   

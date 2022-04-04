@@ -32,6 +32,8 @@ class BeybladeComponent{
       this.balls.get(i).display();
     }
     strokeWeight(this.line_weight);
+    
+    //draws a line through the component:
     line(this.balls.get(0).coordinate.x, this.balls.get(0).coordinate.y, this.balls.get(this.balls.size() - 1).coordinate.x, this.balls.get(this.balls.size() - 1).coordinate.y);
 
   }

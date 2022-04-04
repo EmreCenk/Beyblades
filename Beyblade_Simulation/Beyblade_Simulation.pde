@@ -52,14 +52,14 @@ void setup(){
   
   // our first beyblade:
   beyblade_1 = new Beyblade(32, new PVector(width*0.9, height * 0.8), 100, 12, 5, radians(15));
-  beyblade_1.set_velocity(new PVector(-3, -2)); // when initializing the velocity for the first time, you must use this setter method to set velocity. I repeat: DO NOT USE b.velocity = new PVector(1,1); (this is more of a note to myself than anything lol)
+  beyblade_1.set_velocity(new PVector(-3, -3)); // when initializing the velocity for the first time, you must use this setter method to set velocity. I repeat: DO NOT USE b.velocity = new PVector(1,1); (this is more of a note to myself than anything lol)
   beyblade_1.set_mass(3); // setting the mass
   beyblade_1.set_colour(color(255, 100, 0)); // setting the colour
   beyblades.add(beyblade_1); // we need to add every beyblade to the beyblades arraylist to make sure they are rendered in the draw function
 
   // initializing the second beyblade:
   beyblade_2 = new Beyblade(13, new PVector(width*0.5, height*0.8), 100, 12, 5, radians(10));
-  beyblade_2.set_velocity(new PVector(1, -2));
+  beyblade_2.set_velocity(new PVector(4, 1));
   beyblade_2.set_mass(10);
   beyblade_2.set_colour(color(100, 255, 100));
   beyblades.add(beyblade_2);
@@ -85,7 +85,7 @@ void draw(){
         //checking for collisions on all pairs of beyblades:
         my_prison.calculate_collision(beyblades.get(i), beyblades.get(j));
     }
-    my_prison.imprison(beyblades.get(i)); // make sure the beyblade doesn't escape the prison boundaries. The beyblades must live a long life of suffering within these 4 walls :)
+    my_prison.imprison(beyblades.get(i)); // make sure the beyblade doesn't escape the prison boundaries. The beyblades will live a long life of suffering within these 4 walls :)
   }
   
   for (int i = 0; i < beyblades.size(); i++){
